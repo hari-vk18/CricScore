@@ -1,0 +1,43 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: auto;
+  /* background-image: url("https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Y3JpY2tldHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"); */
+  background-repeat: repeat;
+  background-size: contain;
+  justify-content: center;
+  align-items: center;
+}
+
+.ListCard {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: auto auto;
+  justify-content: center;
+}
+
+.app {
+  font-family: Arial, sans-serif;
+}
+
+.cricbuzz__headerOption {
+  position: relative;
+}
+
+.dropdown-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-link:hover {
+  color: black;
+}
+
+
+/* * {
+  padding: 0;
+  margin: 0;
+} */

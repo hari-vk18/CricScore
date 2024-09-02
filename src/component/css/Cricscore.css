@@ -1,0 +1,205 @@
+.cricbuzz {
+    display: flex;
+    flex-direction: column;
+}
+
+.cricbuzz__header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.cricbuzz__headerImage {
+    height: 60px;
+}
+
+.logo {
+    height: 60px;
+    width: 80px;
+    display: block;
+}
+
+.cricbuzz__headerOptions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    margin-left: 10px;
+}
+
+/* .cricbuzz__headerOption {
+    display: flex;
+    cursor: pointer;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+} */
+
+
+.MuiButtonBase-root {
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.3);
+
+}
+
+
+.cricbuzz__headerOption>h4 {
+    font-weight: 400;
+    font-size: 1em;
+    text-align: center;
+}
+
+.cricbuzz__headerSearch {
+    display: flex;
+    align-items: center;
+    margin: 10px 10px;
+    margin-left: auto;
+}
+
+.cricbuzz__headerSearchIcon {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    background-color: #083594;
+    border-radius: 5px;
+    color: white;
+}
+
+.cricbuzz__headerSearchIcon>input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: white;
+    margin-left: 5px;
+}
+
+.cricbuzz__headerSearchIcon>input::placeholder {
+    color: white !important;
+}
+
+.cricbuzz__matchStrip {
+    display: flex;
+    justify-content: center;
+    /* background-color: #7497d1; */
+    background-image: url('/src/assets/images/dl.beatsnoop.com-3000-T7KhQWgiku.jpg');
+    background-blend-mode: overlay;
+    background-color: rgba(21, 40, 65, 0.9);
+    background-size: cover;
+    height: 280px;
+    object-fit: cover;
+    padding-top: 5px;
+    width: 100%;
+    color: white;
+}
+
+.cricbuzz__matchStripLeft {
+    display: flex;
+}
+
+.cricbuzz__matchStripLeftMatch {
+    background-color: black;
+    display: flex;
+    padding: 10px;
+}
+
+.cricbuzz__matchStrip-LeftMatchOptions {
+    display: flex;
+    align-items: center;
+}
+
+.cricbuzz__matchStrip-LeftMatchOption {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 0px 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.cricbuzz__matchStrip-LeftMatchOption>p {
+    overflow: scroll;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    line-clamp: 1;
+    line-height: 1.5rem;
+    max-height: 1.5rem;
+}
+
+.cricbuzz__matchStrip-LeftMatchOption>p::-webkit-scrollbar {
+    display: none;
+}
+
+.cricbuzz__matchStrip-LeftMatchOption:hover {
+    background-color: #3a3939;
+}
+
+.cricbuzz__matchStrip-LeftMatchOption>small {
+    color: lightgray;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.cricbuzz__all {
+    display: flex;
+    margin-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cricbuzz__all:hover {
+    background-color: #3a3939;
+    cursor: pointer;
+}
+
+a:-webkit-any-link {
+    display: flex;
+    color: white;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 1em;
+    text-align: center;
+    align-items: center;
+}
+
+a:-webkit-any-link:hover {
+    color: rgb(15, 15, 15);
+}
+
+.cricbuzz__headerOption>.MuiSvgIcon-root {
+    color: white;
+}
+
+.cricbuzz__all>.MuiSvgIcon-root {
+    color: white;
+}
+
+.cricbuzz__headerSearch1 {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 2px 0px;
+    margin-left: auto;
+}
+
+.cricbuzz__headerSearch1>.cricbuzz__headerSearchIcon {
+    width: 175px;
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    background-color: #08423594;
+    border-radius: 5px;
+    color: white;
+}
+
+.cricbuzz__headerSearchIcon1>input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: white;
+    margin-left: 5px;
+}
+
+.cricbuzz__headerSearchIcon1>input::placeholder {
+    color: white !important;
+}

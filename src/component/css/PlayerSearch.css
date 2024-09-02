@@ -1,0 +1,33 @@
+.playerSearch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    margin-left: auto;
+}
+
+.playerSearch>.headerSearchIcon {
+    width: 375px;
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    background-color: #F9F9F9;
+    border-radius: 5px;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.3);
+    /* color: linear-gradient(292deg, rgba(209, 55, 71, 1) 4%, rgba(216, 92, 77, 1) 54%, rgba(230, 122, 75, 1) 90%); */
+}
+
+.headerSearchIcon>input {
+    background-color: transparent;
+    width: 85%;
+    text-align: center;
+    outline: none;
+    border: none;
+    margin-left: 5px;
+    color: black;
+}
+
+.headerSearchIcon>input::placeholder {
+    color: #9b9a9a;
+    font-size: medium;
+}

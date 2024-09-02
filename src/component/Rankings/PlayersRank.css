@@ -1,0 +1,83 @@
+.PlayersRank {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+    width: 85%;
+    border-collapse: collapse;
+}
+
+.playerrank,
+.playername {
+    padding: 10px;
+    text-align: left;
+}
+
+.playerteam {
+    padding: 10px;
+    text-align: left;
+}
+
+.playerratings,
+.playerpoint {
+    padding: 10px;
+    text-align: right;
+}
+
+.each {
+    display: flex;
+    justify-content: space-between;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #66D367;
+    padding: 10px;
+
+}
+
+
+.playerrank {
+    width: 70px;
+    font-size: 15px;
+    padding-left: 15px;
+    font-weight: 600;
+}
+
+.playerteam {
+    width: 150px;
+    font-size: 12px;
+    font-weight: 600;
+
+}
+
+.playername {
+    width: 180px;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
+.playerratings {
+    width: 70px;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
+tbody tr {
+    display: table-row;
+}
+
+td,
+th {
+    border: 0;
+}
+
+th {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,12 @@
+.flag>img {
+    margin-top: 1px;
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 1px;
+    border-radius: 1px;
+}
+
+.flag {
+    width: 18px;
+    padding-right: 5px;
+}

@@ -1,0 +1,64 @@
+.Card {
+    background-color: white;
+    color: black;
+    font-size: .6em;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.Strip {
+    width: 74%;
+}
+
+.CardList {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 20px;
+}
+
+.slick-slide {
+    display: flex;
+    justify-content: center;
+    /* Center the cards within the slider */
+    align-items: center;
+    width: 310px !important;
+    height: 50px;
+    margin: 0 20px !important;
+}
+
+.slick-list {
+    display: flex;
+}
+
+.slick-track {
+    display: flex;
+}
+
+.slick-slide {
+    margin: 0px;
+}
+
+.slick-dots li button:before {
+    content: '' !important;
+    width: 7px !important;
+    /* Adjust the size as needed */
+    height: 7px !important;
+    /* Adjust the size as needed */
+    display: block;
+    border-radius: 50%;
+    background-image: linear-gradient(292deg, rgba(209, 55, 71, 1) 0%, rgba(216, 92, 77, 1) 50%, rgba(230, 122, 75, 1) 100%);
+    opacity: 0.5;
+}
+
+.slick-dots li.slick-active button:before {
+    background-color: transparent;
+    background-image: linear-gradient(292deg, rgba(209, 55, 71, 1) 0%, rgba(216, 92, 77, 1) 50%, rgba(230, 122, 75, 1) 100%);
+    opacity: 1;
+    box-shadow: none;
+    /* Remove any box-shadow */
+    border: none;
+}
+
+.slick-dots {
+    display: block !important;
+}

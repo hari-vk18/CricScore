@@ -99,7 +99,7 @@ export default function StripCard({ data }) {
     const [loding, setLoding] = useState(true);
 
     useEffect(() => {
-        const matches = data.filter((item) => item.matchType === 'International');
+        const matches = data;
         console.log('matchesss', matches)
         setInternational(matches);
         setLoding(false);
@@ -128,7 +128,24 @@ export default function StripCard({ data }) {
             <div className='slid'>
                 <Slider {...settings}>
                     {console.log('Slider Data:', International)}
-                    {International[0]?.seriesMatches &&
+
+                    {
+                        International.map((inter, index) => (
+                            inter?.matchType &&
+                            inter?.seriesMatches?.map((data, index) => (
+                                data.seriesAdWrapper && (
+                                    data.seriesAdWrapper?.matches?.map((match) => (
+
+                                        <Card key={index} id={match?.matchInfo?.matchId} matchOb={match} series={data.seriesAdWrapper?.seriesId} />
+
+                                    ))
+                                )
+
+                            ))
+                        ))
+
+                    }
+                    {/* {International[0]?.seriesMatches &&
                         International[0]?.seriesMatches?.map((data, index) => (
                             data.seriesAdWrapper && (
                                 data.seriesAdWrapper?.matches?.map((match) => (
@@ -139,7 +156,7 @@ export default function StripCard({ data }) {
                             )
 
                         ))
-                    }
+                    } */}
                 </Slider>
             </div>
         </div>

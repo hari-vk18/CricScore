@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SearchIcon from "@mui/icons-material/Search";
 import Cricscore from './Cricscore'
 import { Link } from 'react-router-dom';
-import { getLiveMatches, getMatchInfo, getMatchInfo1 } from '../api/api'
+import { getLiveMatchInfo, getMatchInfo, getMatchInfo1 } from '../api/api'
 import ListCard from './ListCard';
 import './css/ListCard.css'
 import Skeleton from './Skeleton'
@@ -22,7 +22,7 @@ function GetMatches() {
 
     useEffect(() => {
         console.log('From GetMatch....')
-        getLiveMatches()
+        getLiveMatchInfo()
             .then((data) => {
                 const matchData = data.typeMatches;
                 console.log('Fetched Match Data:', matchData);

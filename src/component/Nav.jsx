@@ -13,10 +13,10 @@ const navigationOptions = [
     { lable: 'Player Search', path: '/playersearch' },
     { lable: 'News', path: '/sportsnews' },
     { lable: 'Series', path: '/series' },
-    { lable: 'Teams', path: '/teams' },
+    // { lable: 'Teams', path: '/teams' },
     // { lable: 'Videos', path: '/videos' },
     { lable: 'Rankings', path: '/rankings' },
-    { lable: 'More', path: '/more' },
+    // { lable: 'More', path: '/more' },
 ]
 
 const NavOptin = styled(Button)(({ selected }) => ({

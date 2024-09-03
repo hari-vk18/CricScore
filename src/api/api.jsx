@@ -2,7 +2,7 @@
 // const API_KEY = "9eda0e2e-7f99-4ca2-bf6d-09b807405686";
 const API_KEY = "eb48011d-d3a9-4fab-9942-e386f72ba8b2";
 
-const CACHE_EXPIRY_TIME = 360000; // Cache expiry time in milliseconds (1 hour)
+const CACHE_EXPIRY_TIME = 1; // Cache expiry time in milliseconds (1 hour)
 
 const getCachedData = (key) => {
     const cachedItem = localStorage.getItem(key);
@@ -106,12 +106,12 @@ export const getMatchScore1 = async (id, retries = 5, delay = 2000) => {
     const options = {
         method: 'GET',
         headers: {
-            // 'x-rapidapi-key': '3fc5382d1cmshf395be7c65f49b3p1f69f5jsn905c94a8d73a',
+            'x-rapidapi-key': '3fc5382d1cmshf395be7c65f49b3p1f69f5jsn905c94a8d73a',
             // 'x-rapidapi-key': '4097dc4ba2mshaa56497580899e3p1a0dedjsn00c62add3f11',
             // 'x-rapidapi-key': '134db4461dmsha390ba51c0b7c41p1cce62jsn455da64d1f63',
             // 'x-rapidapi-key': '70a3203631mshfaafdd485419ad1p1b847fjsn90d14754b6ba',
             // 'x-rapidapi-key': 'a7f1ac3816msh02a3d5328965dbbp187644jsn5b2892b128b0',
-            'x-rapidapi-key': '25ed6054famshd5f7915eda2908ep16b7dfjsnb3c2299c3f93',
+            // 'x-rapidapi-key': '25ed6054famshd5f7915eda2908ep16b7dfjsnb3c2299c3f93',
             // 'x-rapidapi-host': 'unofficial-cricbuzz.p.rapidapi.com'
             'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com'
 
@@ -553,6 +553,41 @@ export const getLiveMatchInfo = async (id, retries = 5, delay = 2000) => {
     }
 
     const url = `https://crickbuzz-official-apis.p.rapidapi.com/matches/live`;
+    const options = {
+        method: 'GET',
+        headers: {
+            // 'x-rapidapi-key': '3fc5382d1cmshf395be7c65f49b3p1f69f5jsn905c94a8d73a',
+            // 'x-rapidapi-key': '4097dc4ba2mshaa56497580899e3p1a0dedjsn00c62add3f11',
+            // 'x-rapidapi-key': '134db4461dmsha390ba51c0b7c41p1cce62jsn455da64d1f63',
+            // 'x-rapidapi-key': '70a3203631mshfaafdd485419ad1p1b847fjsn90d14754b6ba',
+            'x-rapidapi-key': 'a7f1ac3816msh02a3d5328965dbbp187644jsn5b2892b128b0',
+            // 'x-rapidapi-key': '25ed6054famshd5f7915eda2908ep16b7dfjsnb3c2299c3f93',
+            // 'x-rapidapi-host': 'unofficial-cricbuzz.p.rapidapi.com'
+            'x-rapidapi-host': 'crickbuzz-official-apis.p.rapidapi.com'
+
+        }
+    };
+    try {
+        const response = await fetchWithRetry(url, options, retries, delay);
+        const result = await response.json();
+        console.log('From API', result);
+        setCacheData(cacheKey, result)
+        return result;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+export const getRecentMatchInfo = async (id, retries = 5, delay = 2000) => {
+
+    const cacheKey = `recentMatchScore${id}`;
+    const cachedData = getCachedData(cacheKey);
+    if (cachedData) {
+        return cachedData;
+    }
+
+    const url = `https://crickbuzz-official-apis.p.rapidapi.com/matches/recent`;
     const options = {
         method: 'GET',
         headers: {

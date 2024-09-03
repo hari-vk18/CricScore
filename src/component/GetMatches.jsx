@@ -3,6 +3,7 @@ import { Button, styled } from '@mui/material';
 import Cricscore from './Cricscore'
 import { getLiveMatchInfo, getRecentMatchInfo } from '../api/api'
 import './css/ListCard.css'
+import International from './International';
 
 const navigationOptions = [
     { label: 'International' },
@@ -41,13 +42,29 @@ const ButtonContainer = styled('div')({
     marginBottom: '10px',
 });
 
+const ComponentContainer = styled('div')({
+    width: '100%',
+    marginTop: '20px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+});
+
 function GetMatches() {
+    const [matches, setMatches] = useState([])
     const [limit, setLimit] = useState([]);
     const [search, setSearch] = useState("");
     const [recentMatches, setRecentMatches] = useState([])
     const [selectedOption, setSelecterOption] = useState('International')
 
     // const [loading, setLoading] = useState(true);
+    const matchType = matches.filter((match) => {
+        return (
+            (match.matchType && match.matchType.toLowerCase().includes(search.toLowerCase())) ||
+            (match.teams && match.teams[0] && match.teams[0].toLowerCase().includes(search.toLowerCase())) ||
+            (match.teams && match.teams[1] && match.teams[1].toLowerCase().includes(search.toLowerCase()))
+        );
+    });
 
     useEffect(() => {
         console.log('From GetMatch....')
@@ -55,7 +72,7 @@ function GetMatches() {
             .then((data) => {
                 const matchData = data.typeMatches;
                 console.log('Fetched Match Data:', matchData);
-                // setMatches(matchData);
+                setMatches(matchData);
                 if (matchData.length > 0) {
                     setLimit(matchData.slice(0, 5));
                 }
@@ -66,10 +83,16 @@ function GetMatches() {
         getRecentMatchInfo()
             .then((data) => {
                 const get = data.typeMatches;
+                console.log("recent", get);
                 setRecentMatches(get);
             })
             .catch((err) => console.log(err));
     }, []);
+
+
+    const renderComponent = () => {
+        return <International MatchesTypes={selectedOption} recentMatches={recentMatches} />;
+    };
 
 
     console.log('Limited Matches:', limit);
@@ -102,6 +125,10 @@ function GetMatches() {
                     ))
                 }
             </ButtonContainer>
+            <ComponentContainer>
+                {renderComponent()}
+            </ComponentContainer>
+
 
             {/* {
                 // loading ? (

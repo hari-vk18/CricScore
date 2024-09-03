@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SearchIcon from "@mui/icons-material/Search";
 import Cricscore from './Cricscore'
 import { Link } from 'react-router-dom';
-import { getLiveMatchInfo, getMatchInfo, getMatchInfo1 } from '../api/api'
+import { getLiveMatchInfo, getMatchInfo, getMatchInfo1, getRecentMatchInfo } from '../api/api'
 import ListCard from './ListCard';
 import './css/ListCard.css'
 import Skeleton from './Skeleton'
@@ -11,6 +11,7 @@ function GetMatches() {
     const [matches, setMatches] = useState([])
     const [limit, setLimit] = useState([]);
     const [search, setSearch] = useState("");
+    const [recentMatches, setRecentMatches] = useState([])
     // const [loading, setLoading] = useState(true);
     const matchType = matches.filter((match) => {
         return (
@@ -26,11 +27,18 @@ function GetMatches() {
             .then((data) => {
                 const matchData = data.typeMatches;
                 console.log('Fetched Match Data:', matchData);
-                setMatches(matchData);
+                // setMatches(matchData);
                 if (matchData.length > 0) {
                     setLimit(matchData.slice(0, 5));
                 }
                 // setLoading(false)
+            })
+            .catch((err) => console.log(err));
+
+        getRecentMatchInfo()
+            .then((data) => {
+                const get = data.typeMatches;
+                setRecentMatches(get);
             })
             .catch((err) => console.log(err));
     }, []);
@@ -42,7 +50,7 @@ function GetMatches() {
             {limit && (
                 <Cricscore limit={limit} />
             )}
-            <div className="cricbuzz__headerSearch">
+            {/* <div className="cricbuzz__headerSearch">
                 <div className="cricbuzz__headerSearchIcon">
                     <SearchIcon
                         style={{
@@ -53,7 +61,9 @@ function GetMatches() {
                         onChange={(e) => setSearch(e.target.value)}
                         placeholder="Search" />
                 </div>
-            </div>
+            </div> */}
+
+
             {/* {
                 // loading ? (
                 //     <Skeleton title={""} text={""} />

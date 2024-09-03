@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Button, styled } from '@mui/material';
 import './css/Stripcard.css'
 import Card from './Card';
 import { getSeriesInfo } from '../api/api';
@@ -9,42 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 // import { ReactComponent as Location } from '../assets/SVG/location-2955.svg';
 
-const navigationOptions = [
-    { label: 'International' },
-    { label: 'League' },
-    { label: 'Domestic' },
-    { label: 'Womens' },
-]
 
-const MatchType = styled(Button)(({ selected }) => ({
-    padding: '5px 5px',
-    borderRadius: '5px',
-    margin: '5px',
-    background: selected
-        ? 'linear-gradient(292deg, rgba(209,55,71,1) 4%, rgba(216,92,77,1) 54%, rgba(230,122,75,1) 90%)'
-        : '#f0f0f0',
-    color: selected ? 'white' : 'black',
-    '&:hover': {
-        background: selected
-            ? 'linear-gradient(292deg, rgba(209,55,71,1) 4%, rgba(216,92,77,1) 54%, rgba(230,122,75,1) 90%)'
-            : '#e0e0e0',
-        color: 'black',
-    },
-    textTransform: 'none',
-    display: 'flex',
-    justifyContent: 'center', // Center text inside the button
-    alignItems: 'center',
-    boxSizing: 'border-box', // Ensures padding and border are included in the element's width and height
-    minWidth: '120px',
-}))
-
-const ButtonContainer = styled('div')({
-    width: '80%',
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginBottom: '10px',
-});
 
 const settings = {
     dots: true,
@@ -95,7 +59,6 @@ const settings = {
 
 export default function StripCard({ data }) {
     const [International, setInternational] = useState([]);
-    const [selectedOption, setSelecterOption] = useState('International')
     const [loding, setLoding] = useState(true);
 
     useEffect(() => {
@@ -113,18 +76,7 @@ export default function StripCard({ data }) {
     }
     return (
         <div className='Strip'>
-            <ButtonContainer >
-                {
-                    navigationOptions.map((Option, index) => (
-                        <MatchType
-                            key={index}
-                            selected={selectedOption === Option.label}
-                            onClick={() => setSelecterOption(Option.label)}>
-                            {Option.label}
-                        </MatchType>
-                    ))
-                }
-            </ButtonContainer>
+
             <div className='slid'>
                 <Slider {...settings}>
                     {console.log('Slider Data:', International)}

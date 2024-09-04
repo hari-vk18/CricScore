@@ -5,7 +5,7 @@ import './css/Card.css'
 import TeamImg from './TeamImg';
 
 
-export default function Card({ id, matchOb, seriesId, key }) {
+export default function Card({ id, matchOb, key }) {
     const [matchData, setMatchData] = useState({})
     const [series, setSeries] = useState({})
     const [matchStatus, setMatchStatus] = useState("complete")

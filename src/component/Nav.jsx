@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 
 const navigationOptions = [
     { lable: 'Live Score', path: '/' },
-    { lable: 'Schedule', path: '/schedule' },
+    // { lable: 'Schedule', path: '/schedule' },
     { lable: 'Player Search', path: '/playersearch' },
     { lable: 'News', path: '/sportsnews' },
     { lable: 'Series', path: '/series' },

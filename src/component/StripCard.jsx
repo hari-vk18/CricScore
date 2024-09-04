@@ -8,55 +8,6 @@ import 'slick-carousel/slick/slick-theme.css';
 
 // import { ReactComponent as Location } from '../assets/SVG/location-2955.svg';
 
-
-
-const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3, // Display 3 cards at a time
-    slidesToScroll: 1, // Scroll one card at a time
-    arrows: false,
-    responsive: [
-        {
-            breakpoint: 2560,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                initialSlide: 3,
-                dots: true
-            }
-        },
-        {
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                initialSlide: 3,
-                dots: true
-            }
-        },
-        {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                initialSlide: 2,
-                dots: true
-            }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                dots: true
-            }
-        }
-    ]
-};
-
-
 export default function StripCard({ data }) {
     const [International, setInternational] = useState([]);
     const [loding, setLoding] = useState(true);
@@ -68,6 +19,53 @@ export default function StripCard({ data }) {
         setLoding(false);
     }, [data])
     console.log('Strip', data)
+
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: Math.min(3, International.length),// Display 3 cards at a time
+        slidesToScroll: 1, // Scroll one card at a time
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 2560,
+                settings: {
+                    slidesToShow: Math.min(3, International.length),
+                    slidesToScroll: 1,
+                    initialSlide: 3,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: Math.min(3, International.length),
+                    slidesToScroll: 1,
+                    initialSlide: 3,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: Math.min(2, International.length),
+                    slidesToScroll: 1,
+                    initialSlide: 2,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: Math.min(1, International.length),
+                    slidesToScroll: 1,
+                    dots: true
+                }
+            }
+        ]
+    };
 
     if (loding) {
         return (
@@ -84,11 +82,11 @@ export default function StripCard({ data }) {
                     {
                         International.map((inter, index) => (
                             inter?.matchType &&
-                            inter?.seriesMatches?.map((data, index) => (
+                            inter?.seriesMatches?.map((data) => (
                                 data.seriesAdWrapper && (
                                     data.seriesAdWrapper?.matches?.map((match) => (
 
-                                        <Card key={index} id={match?.matchInfo?.matchId} matchOb={match} series={data.seriesAdWrapper?.seriesId} />
+                                        <Card key={index} id={match?.matchInfo?.matchId} matchOb={match} />
 
                                     ))
                                 )

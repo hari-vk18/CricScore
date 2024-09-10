@@ -24,7 +24,65 @@ export default function Card({ id, matchOb, key }) {
     }, [])
 
     if (!matchData) {
-        return <div>Loading...</div>
+        return (
+            <div className='Card'>
+                <p>
+                    { }
+                    <span style={{ fontSize: '14px', color: 'black' }}> &nbsp; &#8226; &nbsp; </span>
+                    { }
+                </p>
+                <h4>
+                    { }
+                    {/* <Location width={256} height={256} /> */}
+
+                    { }
+                </h4>
+
+
+                <div className='scoreCon'>
+                    <div className='Score'>{
+                        (
+                            <>
+                                <h5>
+                                    <span></span></h5>
+                                <h5>
+                                    <span></span>
+                                </h5>
+                            </>)
+
+                    }
+
+                    </div>
+                    <div className='Score'>{
+                        matchData?.scoreCard && matchData?.scoreCard[1] ?
+                            (
+                                <>
+                                    <h5><TeamImg imgId={matchOb?.matchInfo?.team2?.imageId} />
+                                        <span>{matchOb?.matchInfo?.team2?.teamSName}</span></h5>
+                                    <h5>{matchData?.scoreCard[1]?.scoreDetails?.runs}/{matchData?.scoreCard[1]?.scoreDetails?.wickets}
+                                        <span>({matchData?.scoreCard[1]?.scoreDetails?.overs})</span>
+                                    </h5>
+                                </>)
+                            :
+                            <>
+                                <h5><TeamImg imgId={matchOb?.matchInfo?.team2?.imageId} />
+                                    <span>{matchOb?.matchInfo?.team2?.teamSName}</span></h5>
+                                <h5>
+                                    <span>Yet to bat</span>
+                                </h5>
+                            </>
+                    }
+
+                    </div>
+                </div>
+                <div className='status'>
+                    <h4>
+                        {matchData.status}
+                    </h4>
+                </div>
+
+            </div>
+        )
     }
     return (
         <div className='Card'>

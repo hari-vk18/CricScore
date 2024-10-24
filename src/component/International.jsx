@@ -18,11 +18,14 @@ export default function International({ MatchesTypes, recentMatches }) {
                     match?.matchType &&
                     match?.seriesMatches?.map((data, index) => (
                         data.seriesAdWrapper && (
-                            data.seriesAdWrapper?.matches?.map((match) => (
-
-                                <Card key={index} id={match?.matchInfo?.matchId} matchOb={match} series={data.seriesAdWrapper?.seriesId} />
-
-                            ))
+                            data.seriesAdWrapper?.matches?.length > 0 && (
+                                <Card
+                                    key={data.seriesAdWrapper.matches[0]?.matchInfo?.matchId}
+                                    id={data.seriesAdWrapper.matches[0]?.matchInfo?.matchId}
+                                    matchOb={data.seriesAdWrapper.matches[0]}
+                                    series={data.seriesAdWrapper?.seriesId}
+                                />
+                            )
                         )
 
                     ))

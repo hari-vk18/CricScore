@@ -57,7 +57,7 @@ export default function Card({ id, matchOb, key }) {
                         matchData?.scoreCard && matchData?.scoreCard[1] ?
                             (
                                 <>
-                                    <h5><TeamImg imgId={matchOb?.matchInfo?.team2?.imageId} />
+                                    <h5><TeamImg imgId={matchOb?.matchInfo?.team2?.imageId} name={matchOb?.matchInfo?.team2?.teamSName} />
                                         <span>{matchOb?.matchInfo?.team2?.teamSName}</span></h5>
                                     <h5>{matchData?.scoreCard[1]?.scoreDetails?.runs}/{matchData?.scoreCard[1]?.scoreDetails?.wickets}
                                         <span>({matchData?.scoreCard[1]?.scoreDetails?.overs})</span>
@@ -65,7 +65,7 @@ export default function Card({ id, matchOb, key }) {
                                 </>)
                             :
                             <>
-                                <h5><TeamImg imgId={matchOb?.matchInfo?.team2?.imageId} />
+                                <h5><TeamImg imgId={matchOb?.matchInfo?.team2?.imageId} name={matchOb?.matchInfo?.team2?.teamSName} />
                                     <span>{matchOb?.matchInfo?.team2?.teamSName}</span></h5>
                                 <h5>
                                     <span>Yet to bat</span>
@@ -117,7 +117,7 @@ export default function Card({ id, matchOb, key }) {
                     matchData?.scoreCard && matchData?.scoreCard[0] ?
                         (
                             <>
-                                <h5><TeamImg imgId={matchOb?.matchInfo?.team1?.imageId} />
+                                <h5><TeamImg imgId={matchOb?.matchInfo?.team1?.imageId} name={matchOb?.matchInfo?.team1?.teamSName} />
                                     <span>{matchData?.scoreCard[0]?.batTeamDetails?.batTeamShortName}</span></h5>
                                 <h5>{matchData?.scoreCard[0]?.scoreDetails?.runs}/{matchData?.scoreCard[0]?.scoreDetails?.wickets}
                                     <span>({matchData?.scoreCard[0]?.scoreDetails?.overs})</span>
@@ -125,7 +125,7 @@ export default function Card({ id, matchOb, key }) {
                             </>)
                         :
                         <>
-                            <h5><TeamImg imgId={matchOb?.matchInfo?.team1?.imageId} />
+                            <h5><TeamImg imgId={matchOb?.matchInfo?.team1?.imageId} name={matchOb?.matchInfo?.team1?.teamSName} />
                                 <span>{matchOb?.matchInfo?.team1?.teamSName}</span></h5>
                             <h5>
                                 <span>Yet to bat</span>
@@ -138,7 +138,7 @@ export default function Card({ id, matchOb, key }) {
                     matchData?.scoreCard && matchData?.scoreCard[1] ?
                         (
                             <>
-                                <h5><TeamImg imgId={matchOb?.matchInfo?.team2?.imageId} />
+                                <h5><TeamImg imgId={matchOb?.matchInfo?.team2?.imageId} name={matchOb?.matchInfo?.team2?.teamSName} />
                                     <span>{matchOb?.matchInfo?.team2?.teamSName}</span></h5>
                                 <h5>{matchData?.scoreCard[1]?.scoreDetails?.runs}/{matchData?.scoreCard[1]?.scoreDetails?.wickets}
                                     <span>({matchData?.scoreCard[1]?.scoreDetails?.overs})</span>
@@ -146,7 +146,7 @@ export default function Card({ id, matchOb, key }) {
                             </>)
                         :
                         <>
-                            <h5><TeamImg imgId={matchOb?.matchInfo?.team2?.imageId} />
+                            <h5><TeamImg imgId={matchOb?.matchInfo?.team2?.imageId} name={matchOb?.matchInfo?.team2?.teamSName} />
                                 <span>{matchOb?.matchInfo?.team2?.teamSName}</span></h5>
                             <h5>
                                 <span>Yet to bat</span>

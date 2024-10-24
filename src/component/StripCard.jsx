@@ -84,11 +84,14 @@ export default function StripCard({ data }) {
                             inter?.matchType &&
                             inter?.seriesMatches?.map((data) => (
                                 data.seriesAdWrapper && (
-                                    data.seriesAdWrapper?.matches?.map((match) => (
-
-                                        <Card key={index} id={match?.matchInfo?.matchId} matchOb={match} />
-
-                                    ))
+                                    data.seriesAdWrapper?.matches?.length > 0 && (
+                                        <Card
+                                            key={data.seriesAdWrapper.matches[0]?.matchInfo?.matchId}
+                                            id={data.seriesAdWrapper.matches[0]?.matchInfo?.matchId}
+                                            matchOb={data.seriesAdWrapper.matches[0]}
+                                            series={data.seriesAdWrapper?.seriesId}
+                                        />
+                                    )
                                 )
 
                             ))

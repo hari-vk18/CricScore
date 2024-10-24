@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getImg } from '../api/api';
+import { getImg, getImgage } from '../api/api';
 import { css, useTheme } from '@emotion/react';
 import './css/TeamImg.css'
 
@@ -25,15 +25,29 @@ const useStyles = (theme) => ({
     `,
 });
 
-export default function TeamImg({ imgId }) {
+export default function TeamImg({ imgId, name }) {
   const [image, setImage] = useState();
   const theme = useTheme();
   const styles = useStyles(theme);
 
   useEffect(() => {
-    getImg(imgId)
-      .then((image) => {
-        setImage(image);
+    getImgage(imgId, name)
+      .then((response) => {
+        setImage(response);
+      })
+      .catch((err) => {
+        if (err.message === '404') {
+          getImg(imgId)
+            .then((response) => {
+              setImage(response);
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+        }
+        else {
+          console.error(err);
+        }
       })
   }, [imgId])
   return (

@@ -84,7 +84,7 @@ function GetMatches() {
             .then((data) => {
                 const get = data.typeMatches;
                 console.log("recent", get);
-                setRecentMatches(get);
+                setRecentMatches(get.slice(0, 5));
             })
             .catch((err) => console.log(err));
     }, []);

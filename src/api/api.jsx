@@ -108,9 +108,9 @@ export const getMatchScore1 = async (id, retries = 5, delay = 2000) => {
         headers: {
             // 'x-rapidapi-key': '3fc5382d1cmshf395be7c65f49b3p1f69f5jsn905c94a8d73a',
             // 'x-rapidapi-key': '4097dc4ba2mshaa56497580899e3p1a0dedjsn00c62add3f11',
-            'x-rapidapi-key': '134db4461dmsha390ba51c0b7c41p1cce62jsn455da64d1f63',
+            // 'x-rapidapi-key': '134db4461dmsha390ba51c0b7c41p1cce62jsn455da64d1f63',
             // 'x-rapidapi-key': '70a3203631mshfaafdd485419ad1p1b847fjsn90d14754b6ba',
-            // 'x-rapidapi-key': 'a7f1ac3816msh02a3d5328965dbbp187644jsn5b2892b128b0',
+            'x-rapidapi-key': 'a7f1ac3816msh02a3d5328965dbbp187644jsn5b2892b128b0',
             // 'x-rapidapi-key': '25ed6054famshd5f7915eda2908ep16b7dfjsnb3c2299c3f93',
             // 'x-rapidapi-host': 'unofficial-cricbuzz.p.rapidapi.com'
             'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com'

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getMatchInfo, getPlayerState } from '../api/api'
+import { getMatchInfo, getPlayerState, getPlayerStateLocal } from '../api/api'
 import SearchIcon from "@mui/icons-material/Search";
 import PlayerCard from './PlayerCard'
 import './css/PlayerSearch.css'
@@ -46,11 +46,11 @@ export default function PlayerSearch() {
 
     useEffect(() => {
         if (search !== "")
-            getPlayerState(search)
+            getPlayerStateLocal(search)
                 .then((data) => {
-                    console.log(data.player)
-                    if (data.player) {
-                        setPlayer(data.player.slice(0, 15));
+                    console.log("for search", data)
+                    if (data) {
+                        setPlayer(data.slice(0, 15));
                     } else {
                         console.error("No player data found");
                     }

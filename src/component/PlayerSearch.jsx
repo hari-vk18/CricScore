@@ -44,7 +44,14 @@ export default function PlayerSearch() {
         setPlayerState(id === PlayerState ? null : id);
     }
 
-    useEffect(() => {
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            // Trigger search when Enter is pressed
+            searchPlayers();
+        }
+    };
+
+    const searchPlayers = () => {
         if (search !== "")
             getPlayerStateLocal(search)
                 .then((data) => {
@@ -56,7 +63,7 @@ export default function PlayerSearch() {
                     }
                 })
                 .catch((err) => console.log(err));
-    }, [search]);
+    }
     return (
         <>
             <div className="playerSearch">
@@ -69,6 +76,7 @@ export default function PlayerSearch() {
                     <input
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
+                        onKeyDown={handleKeyDown}
                         placeholder="Search" />
                 </div>
 
@@ -80,7 +88,7 @@ export default function PlayerSearch() {
                             // return <PlayerCard id={player.id} player={player} />
                             return (
                                 <PlayerList>{player.name}
-                                    <Buttons key={player.id} onClick={() => handleClick(player.id)} selected={player.name}>See More</Buttons>
+                                    <Buttons key={player.id} onClick={() => handleClick(player.id)} selected={PlayerState === player.id}>See More</Buttons>
                                     {
                                         PlayerState === player.id && <PlayerCard id={player.id} player={player} />
                                     }

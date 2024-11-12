@@ -5,7 +5,7 @@ import './css/Card.css'
 import TeamImg from './TeamImg';
 
 
-export default function Card({ id, matchOb, key }) {
+export default function Card({ id, matchOb, key, onClick }) {
     const [matchData, setMatchData] = useState({})
     const [series, setSeries] = useState({})
     const [matchStatus, setMatchStatus] = useState("complete")
@@ -21,11 +21,11 @@ export default function Card({ id, matchOb, key }) {
         //         console.log('Series...', series)
         //         setSeries(series)
         //     })
-    }, [])
+    }, [id])
 
     if (!matchData) {
         return (
-            <div className='Card'>
+            <div className='Card' onClick={() => onClick(id)}>
                 <p>
                     { }
                     <span style={{ fontSize: '14px', color: 'black' }}> &nbsp; &#8226; &nbsp; </span>
@@ -85,7 +85,7 @@ export default function Card({ id, matchOb, key }) {
         )
     }
     return (
-        <div className='Card'>
+        <div className='Card' onClick={() => onClick(id)}>
             <p>
                 {matchData?.matchHeader?.state.toUpperCase()}
                 <span style={{ fontSize: '14px', color: 'black' }}> &nbsp; &#8226; &nbsp; </span>

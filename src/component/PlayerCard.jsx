@@ -30,14 +30,8 @@ export default function PlayerCard({ player, id }) {
     const styles = useStyles(theme);
 
     React.useEffect(() => {
-        getPlayer(id)
-            .then((player) => {
-                setPlayerInfo(player)
-                console.log("From Player Card", player)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+        setPlayerInfo(player)
+        console.log("From Player Card", player)
 
         getPlayerBat(id)
             .then((bat) => {
